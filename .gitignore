@@ -4,12 +4,4 @@ configs/fish/functions
 configs/fish/fish_variables
 .cache/
 auto-save-list/
-emacs/auto-save-list/
-emacs/elpa
-emacs/.cache
-emacs/eshell
-emacs/config.el
-emacs/ido.last
-emacs/places
-emacs/projectile-bookmarks.eld
-emacs/smex-items
+emacs/*

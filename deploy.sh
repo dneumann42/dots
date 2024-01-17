@@ -41,14 +41,14 @@ git submodule update --init --recursive
 
 # [note] I don't like hardcoding this, I would
 # prefer to have this be a variable, will do that later
-DOTFILES_DIR="$HOME/Projects/dots"
+DOTFILES_DIR="$HOME/.dots"
 CONFIG_DIR="$HOME/.config"
 
 # Symlinks
 
 ## Create extra home directories
 
-mkdir -p $HOME/Repos
+mkdir -p $HOME/.repos
 mkdir -p $HOME/Projects
 mkdir -p "$HOME/.local/bin/"
 
@@ -81,9 +81,7 @@ execute "ln -sf $DOTFILES_DIR/emacs $HOME/.emacs.d"
 execute "rm -rf $DOTFILES_DIR/emacs/emacs"
 
 ## ZSH
-
 for src in "$DOTFILES_DIR/zsh"/*; do
-    echo $src
     execute "ln -sf $src $HOME/.$(basename -- $src)"
 done
 
