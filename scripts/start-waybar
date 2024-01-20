@@ -1,0 +1,10 @@
+#!/bin/bash
+
+CONF="$HOME/.config/waybar/config $HOME/.config/waybar/style.css"
+trap "killall waybar" EXIT
+
+while true; do
+    waybar & disown
+    inotifywait -e create,modify $CONF
+    killall waybar
+done

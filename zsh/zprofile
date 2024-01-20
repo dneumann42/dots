@@ -6,3 +6,5 @@ export PATH="$PATH:/home/dneumann/.local/share/JetBrains/Toolbox/scripts"
 # opam configuration
 test -r /home/dneumann/.opam/opam-init/init.sh && . /home/dneumann/.opam/opam-init/init.sh > /dev/null 2> /dev/null || true
 . "$HOME/.cargo/env"
+
+export PATH=/home/dneumann/.config/scripts:$PATH

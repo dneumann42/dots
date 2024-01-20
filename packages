@@ -1,5 +1,13 @@
 dmenu
-alacritty
 neovim
 fish
 util-linux-user
+
+akmod-nvidia
+xorg-x11-drv-nvidia-cuda
+libva
+libva-nvidia-driver
+swaybg
+kitty
+fontawesome-fonts
+inotify-tools

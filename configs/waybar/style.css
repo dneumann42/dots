@@ -1,12 +1,11 @@
 * {
     /* `otf-font-awesome` is required to be installed for icons */
-    font-family: FontAwesome, Roboto, Helvetica, Arial, sans-serif;
+    font-family: FontAwesome, FiraMono Nerd Font Mono, Helvetica, Arial, sans-serif;
     font-size: 13px;
 }
 
 window#waybar {
-    background-color: rgba(0, 0, 0, 0.85);
-    border-bottom: 3px solid rgba(100, 114, 125, 0.5);
+    background-color: rgba(0, 0, 0, 1.0);
     color: #ffffff;
     transition-property: background-color;
     transition-duration: .5s;
@@ -87,9 +86,13 @@ button:hover {
 #mode,
 #idle_inhibitor,
 #scratchpad,
+#language,
 #mpd {
-    padding: 0 10px;
+    padding: 0 20px;
+    margin: 0 calc(1em / 2) 4px calc(1em / 2);
     color: #ffffff;
+    box-shadow: 4px 4px 0px 1px rgba(155,155,155,1);
+    border-radius: 8px;
 }
 
 #window,
@@ -108,7 +111,7 @@ button:hover {
 }
 
 #clock {
-    background-color: #64727D;
+    background-color: #bd4d60;
 }
 
 #battery {
@@ -148,7 +151,7 @@ label:focus {
 }
 
 #memory {
-    background-color: #9b59b6;
+    background-color: #584e9c;
 }
 
 #disk {
