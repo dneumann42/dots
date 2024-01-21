@@ -5,13 +5,17 @@
     // "width": 1280, // Waybar width
     "spacing": 0, // This is set using the css
     // Choose the order of the modules
+    "margin-top": 8,
+    "margin-bottom": -4,
+    "margin-left": 8,
+    "margin-right": 8,
     "modules-left": ["hyprland/workspaces", "sway/mode", "sway/scratchpad", "custom/media"],
     "modules-center": ["hyprland/window"],
     "modules-right": ["mpd", "idle_inhibitor", "pulseaudio", "network", "cpu", "memory", "temperature", "backlight", "keyboard-state", "battery", "battery#bat2", "clock", "tray"],
     // Modules configuration
     "hyprland/workspaces": {
         "disable-scroll": false,
-        "all-outputs": false,
+        "all-outputs": true,
         "warp-on-scroll": false,
         "format": "{name}: {icon}",
         "format-icons": {
