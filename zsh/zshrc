@@ -1,7 +1,8 @@
 export ZSH="$HOME/.oh-my-zsh"
 ZSH_THEME="robbyrussell"
 
-ENABLE_CORRECTION="true"
+## This isn't that useful since it auto completes arguments :/
+ENABLE_CORRECTION="false"
 
 plugins=(git)
 
@@ -16,3 +17,8 @@ esac
 # pnpm end
 
 export PATH=/home/dneumann/.nimble/bin:$PATH
+
+alias gs="git status"
+alias gc="git commit"
+alias ga="git add"
+alias cls="clear"
