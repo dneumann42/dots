@@ -17,10 +17,17 @@ esac
 # pnpm end
 
 export PATH=/home/dneumann/.nimble/bin:$PATH
-
+export PATH="$PATH:/home/dneumann/.local/share/JetBrains/Toolbox/scripts"
 alias gs="git status"
 alias gc="git commit"
 alias ga="git add"
 alias cls="clear"
 
 export PATH=$PATH:/home/dneumann/.spicetify
+=======
+if [ -e "/usr/bin/zellij" ]; then
+  if [ -n "$ZELLIJ" ]; then
+  else
+    zellij
+  fi
+fi
