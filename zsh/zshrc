@@ -24,7 +24,7 @@ alias ga="git add"
 alias cls="clear"
 
 export PATH=$PATH:/home/dneumann/.spicetify
-=======
+
 if [ -e "/usr/bin/zellij" ]; then
   if [ -n "$ZELLIJ" ]; then
   else
