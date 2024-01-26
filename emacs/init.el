@@ -268,7 +268,9 @@
 (use-package sly
   :ensure t
   :config
-  (setq inferior-lisp-program "/usr/bin/sbcl"))
+  (require 'sly-autoloads)
+  (setq inferior-lisp-program "/usr/bin/sbcl")
+  )
 
 (defun paredit-barf-all-the-way-backward ()
   (interactive)

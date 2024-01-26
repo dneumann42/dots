@@ -80,8 +80,11 @@ done
 execute "ln -sf $DOTFILES_DIR/emacs $HOME/.emacs.d"
 execute "rm -rf $DOTFILES_DIR/emacs/emacs"
 
-## ZSH
 for src in "$DOTFILES_DIR/zsh"/*; do
+    execute "ln -sf $src $HOME/.$(basename -- $src)"
+done
+
+for src in "$DOTFILES_DIR/sbcl"/*; do
     execute "ln -sf $src $HOME/.$(basename -- $src)"
 done
 
