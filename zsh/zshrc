@@ -4,7 +4,18 @@ ZSH_THEME="robbyrussell"
 ## This isn't that useful since it auto completes arguments :/
 ENABLE_CORRECTION="false"
 
-plugins=(git)
+# git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+# git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+
+plugins=(
+  zsh-autosuggestions
+  zsh-syntax-highlighting
+  git
+)
+
+bindkey -v
+bindkey ^R history-incremental-search-backward 
+bindkey ^S history-incremental-search-forward
 
 source $ZSH/oh-my-zsh.sh
 
