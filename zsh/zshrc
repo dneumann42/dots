@@ -35,10 +35,11 @@ alias ga="git add"
 alias cls="clear"
 
 export PATH=$PATH:/home/dneumann/.spicetify
+export PATH=$PATH:/home/dneumann/.config/scripts
 
 if [ -e "/usr/bin/zellij" ]; then
   if [ -n "$ZELLIJ" ]; then
   else
-    zellij
+    zellij -l compact
   fi
 fi
