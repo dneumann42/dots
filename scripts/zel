@@ -1,0 +1,10 @@
+#!/bin/bash
+
+if [[ -z "$ZEL" ]]; then exit 0 fi
+
+if [ -e "/usr/bin/zellij" ]; then
+  if [ -n "$ZELLIJ" ]; then
+  else
+    zellij -l compact
+  fi
+fi

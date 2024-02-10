@@ -37,7 +37,10 @@
       "tray"
     ],
 
-    // Modules configuration
+    "hyprland/window": {
+      "max-length": 40,
+      "tooltip": true
+    },
     "hyprland/workspaces": {
         "disable-scroll": false,
         "all-outputs": false,
@@ -116,7 +119,8 @@
         "tooltip": false
     },
     "memory": {
-        "format": "🧠 {}%"
+        "format": "🧠 {}%",
+        "interval": 5
     },
     "temperature": {
         // "thermal-zone": 2,

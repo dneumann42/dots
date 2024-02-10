@@ -29,17 +29,13 @@ esac
 
 export PATH=/home/dneumann/.nimble/bin:$PATH
 export PATH="$PATH:/home/dneumann/.local/share/JetBrains/Toolbox/scripts"
+
 alias gs="git status"
 alias gc="git commit"
 alias ga="git add"
 alias cls="clear"
+alias zellij="zellij -l compact"
 
 export PATH=$PATH:/home/dneumann/.spicetify
 export PATH=$PATH:/home/dneumann/.config/scripts
 
-if [ -e "/usr/bin/zellij" ]; then
-  if [ -n "$ZELLIJ" ]; then
-  else
-    zellij -l compact
-  fi
-fi
