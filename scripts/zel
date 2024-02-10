@@ -1,10 +1,8 @@
-#!/bin/bash
-
-if [[ -z "$ZEL" ]]; then exit 0 fi
+#!/bin/zsh
 
 if [ -e "/usr/bin/zellij" ]; then
   if [ -n "$ZELLIJ" ]; then
   else
-    zellij -l compact
+    zellij attach main --create
   fi
 fi

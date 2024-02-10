@@ -1,0 +1,39 @@
+#!/bin/bash
+
+## Alternate https://github.com/D3Ext/aesthetic-wallpapers
+
+REPO_DIR="$HOME/.config/wallpapers"
+REPO="https://github.com/makccr/wallpapers"
+EXT_SAVE="$HOME/.local/share/wallpaper-extension"
+
+if [ "$1" = "--restore" ]; then
+  if [ -f "$EXT_SAVE" ]; then
+    EXT=$(cat "$EXT_SAVE")
+
+    killall swaybg
+    swaybg --image "$HOME/Desktop/wallpaper.$EXT" & disown
+  else
+    pape
+  fi
+else
+
+  if [ ! -d "$REPO_DIR/.git" ]; then
+    git clone --depth 1 $REPO $REPO_DIR
+  else
+    pushd $REPO_DIR > /dev/null
+    git pull -p
+    popd > /dev/null
+  fi
+
+  NEW_WALLPAPER=$(sxiv -o -t -r $REPO_DIR/wallpapers/*)
+
+  if [[ -n $NEW_WALLPAPER ]]; then
+    filename=$(basename -- "$NEW_WALLPAPER")
+    extension="${filename##*.}"
+    cp "$NEW_WALLPAPER" "$HOME/Desktop/wallpaper.$extension" 
+    killall swaybg
+    swaybg --image "$HOME/Desktop/wallpaper.$extension" & disown
+    echo "$extension" > "$EXT_SAVE"
+  fi
+
+fi
