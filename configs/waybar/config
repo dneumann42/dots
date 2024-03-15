@@ -4,7 +4,7 @@
 
     // "height": 30, // Waybar height (to be removed for auto height)
     // "width": 1280, // Waybar width
-    "spacing": 0, // This is set using the css
+    "spacing": 8, // This is set using the css
     // Choose the order of the modules
 
     "margin-top": 0,
@@ -17,7 +17,11 @@
       "hyprland/mode", 
       "hyprland/scratchpad", 
       "idle_inhibitor", 
-      "custom/media"
+      "custom/media",
+      "cpu", 
+      "memory", 
+      "disk",
+      "temperature"
     ],
     "modules-center": [
       "hyprland/window"
@@ -26,9 +30,6 @@
       "mpd", 
       "pulseaudio", 
       "network", 
-      "cpu", 
-      "memory", 
-      "temperature", 
       "backlight", 
       "keyboard-state", 
       "battery", 
@@ -44,8 +45,8 @@
     "hyprland/workspaces": {
         "disable-scroll": false,
         "all-outputs": false,
-        "warp-on-scroll": false,
-        "format": "{name}: {icon}",
+        "warp-on-scroll": true,
+        "format": "{name}",
         "format-icons": {
             "1": "",
             "2": "",
@@ -89,7 +90,7 @@
     },
     "clock": {
       "interval": 1,
-      "format": " {:%r | %a %b %d, %Y}",
+      "format": "{:%r | %a %b %d, %Y}  ",
       "format-alt": "{:%a %B %d, %Y (%R)}",
       "tooltip-format": "<tt><small>{calendar}</small></tt>",
       "calendar": {
@@ -115,12 +116,16 @@
       }
     },
     "cpu": {
-        "format": " {usage}%",
+        "format": "{usage}%  ",
         "tooltip": false
     },
     "memory": {
-        "format": "🧠 {}%",
+        "format": "{}% 🧠",
         "interval": 5
+    },
+    "disk": {	
+      "interval": 30,
+      "format": "{percentage_free}% 💾",
     },
     "temperature": {
         // "thermal-zone": 2,
@@ -128,7 +133,7 @@
         "critical-threshold": 80,
         // "format-critical": "{temperatureC}°C {icon}",
         "format": "{temperatureC}°C {icon}",
-        "format-icons": ["", "", ""]
+        "format-icons": ["", "", ""]
     },
     "backlight": {
         // "device": "acpi_video1",

@@ -37,12 +37,6 @@ CONFIG_DIR="$HOME/.config"
 
 # Symlinks
 
-## Create extra home directories
-
-mkdir -p $HOME/.repos
-mkdir -p $HOME/Projects
-mkdir -p "$HOME/.local/bin/"
-
 ## Symlink the configs
 
 mkdir -p "$CONFIG_DIR"

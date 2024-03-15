@@ -11,16 +11,18 @@ if [ "$1" = "--restore" ]; then
     EXT=$(cat "$EXT_SAVE")
 
     killall swaybg
-    swaybg --image "$HOME/Desktop/wallpaper.$EXT" & disown
+    swaybg --image "$HOME/.local/share/wallpaper.$EXT" & disown
   else
     pape
   fi
 else
 
-  if [ ! -d "$REPO_DIR/.git" ]; then
+  if [ ! -d "$REPO_DIR" ]; then
+    notify-send "cloning wallpapers repo..."
     git clone --depth 1 $REPO $REPO_DIR
   else
     pushd $REPO_DIR > /dev/null
+    notify-send "updating wallpapers repo..."
     git pull -p
     popd > /dev/null
   fi
@@ -30,10 +32,11 @@ else
   if [[ -n $NEW_WALLPAPER ]]; then
     filename=$(basename -- "$NEW_WALLPAPER")
     extension="${filename##*.}"
-    cp "$NEW_WALLPAPER" "$HOME/Desktop/wallpaper.$extension" 
+    cp "$NEW_WALLPAPER" "$HOME/.local/share/wallpaper.$extension" 
     killall swaybg
-    swaybg --image "$HOME/Desktop/wallpaper.$extension" & disown
+    swaybg --image "$HOME/.local/share/wallpaper.$extension" & disown
     echo "$extension" > "$EXT_SAVE"
+    notify-send "wallpaper was changed."
   fi
 
 fi

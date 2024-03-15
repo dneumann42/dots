@@ -28,6 +28,9 @@ bindkey -v
 bindkey ^R history-incremental-search-backward 
 bindkey ^S history-incremental-search-forward
 
+# Useful keybindings
+bindkey -s '^g' 'git status --short^M'
+
 source $ZSH/oh-my-zsh.sh
 source "$HOME/.cargo/env"
 
@@ -38,6 +41,7 @@ case ":$PATH:" in
   *) export PATH="$PNPM_HOME:$PATH" ;;
 esac
 # pnpm end
+
 
 export PATH=/home/dneumann/.nimble/bin:$PATH
 export PATH="$PATH:/home/dneumann/.local/share/JetBrains/Toolbox/scripts"

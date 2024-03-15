@@ -1,66 +1,79 @@
 * {
-    font-family: monospace;
-    border: none;
+    border:        none;
     border-radius: 0;
-    font-size: 14px;
-    min-height: 0;
+    font-family:   DaddyTimeMono Nerd Font;
+    font-size:     15px;
+    box-shadow:    none;
+    text-shadow:   none;
+    transition-duration: 0s;
 }
 
-window#waybar {
-    background-color: black;
-    color: darkseagreen;
+window {
+    color:      rgba(217, 216, 216, 1);
+    background: rgba(35, 31, 32, 0.20);
 }
 
-window#waybar .modules-center {
-    background-color: black;
-    color: darksalmon;
+window#waybar.solo {
+    color:      rgba(217, 216, 216, 1);
+    background: rgba(35, 31, 32, 0.20);
 }
 
-#clock,
-#battery,
-#cpu,
-#memory,
-#disk,
-#temperature,
-#backlight,
-#network,
-#pulseaudio,
-#wireplumber,
-#custom-media,
-#tray,
-#mode,
-#idle_inhibitor,
-#scratchpad,
-#mpd {
-    margin-right: 20px;
-    border-bottom: 2px solid dimgrey;
-}
-
-#clock {
-    color: darksalmon;
-}
-
-#pulseaudio {
-    color: darksalmon;
-}
-
-#idle_inhibitor {
-    margin-left: 16px;
-    color: gray;
-}
-
-#idle_inhibitor.activated {
-    margin-left: 16px;
-    color: darkorange;
+#workspaces {
+    margin: 0 15px;
 }
 
 #workspaces button {
-    background-color: black;
-    color: darksalmon;
+    padding:    0 5px;
+    color:      rgba(217, 216, 216, 0.4);
 }
 
-#workspaces button.active {
-    background-color: darkseagreen;
-    border-radius: 8px;
-    color: black;
+#workspaces button.visible {
+    color:      rgba(217, 216, 216, 1);
+}
+
+#workspaces button.focused {
+    border-top: 3px solid rgba(217, 216, 216, 1);
+    border-bottom: 3px solid rgba(217, 216, 216, 0);
+}
+
+#workspaces button.urgent {
+    color:      rgba(238, 46, 36, 1);
+}
+
+#mode, #battery, #cpu, #memory, #network, #pulseaudio, #idle_inhibitor, #backlight, #custom-storage, #custom-spotify, #custom-weather, #custom-mail, #disk, #temperature {
+    min-width:  25px;
+    border-top: 2px solid white;
+    background-color: rgba(0, 0, 0, 0.3);
+    padding-left: 16px;
+    padding-right: 16px;
+    border-radius: 0px 0px 16px 16px;
+}
+
+#battery {
+   margin-right: 12px;
+}
+
+#clock {
+    margin:     0px 16px 0px 10px;
+    min-width:  140px;
+}
+
+#battery.warning {
+   color:       rgba(255, 210, 4, 1);
+}
+
+#battery.critical {
+    color:      rgba(238, 46, 36, 1);
+}
+
+#battery.charging {
+    color:      rgba(217, 216, 216, 1);
+}
+
+#custom-storage.warning {
+    color:      rgba(255, 210, 4, 1);
+}
+
+#custom-storage.critical {
+    color:      rgba(238, 46, 36, 1);
 }
