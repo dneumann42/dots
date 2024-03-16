@@ -10,13 +10,14 @@
 
 window {
     color:      rgba(217, 216, 216, 1);
-    /* background: rgba(35, 31, 32, 0.20); */
-    background: linear-gradient(180deg, rgba(0,0,0,1) 8%, rgba(43,43,43,0) 50%, rgba(255,255,255,0) 100%); 
+    background: rgba(35, 31, 32, 0.20);
+    /* background: linear-gradient(180deg, rgba(100,100,100,0.8) 8%, rgba(43,43,43,0) 50%, rgba(255,255,255,0) 100%);  */
 }
 
 window#waybar.solo {
     color:      rgba(217, 216, 216, 1);
-    background: linear-gradient(180deg, rgba(100,100,100,0.5) 0%, rgba(150,150,150,0) 50%, rgba(255,255,255,0) 100%); 
+    background: rgba(35, 31, 32, 0.20);
+    /* background: linear-gradient(180deg, rgba(0,0,0,1) 8%, rgba(43,43,43,0) 100%, rgba(255,255,255,0) 100%);  */
 }
 
 .modules-center {
