@@ -9,6 +9,8 @@
 (defmacro enter-package (id)
 	  `(in-package ,id))
 
+(require :uiop)
+
 (defun qload (id)
   "quickly load a quicklisp project."
   (ql:quickload id)

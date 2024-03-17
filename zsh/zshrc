@@ -55,4 +55,5 @@ alias dots="pushd $HOME/.dots"
 
 export PATH=$PATH:/home/dneumann/.spicetify
 export PATH=$PATH:/home/dneumann/.config/scripts
+export PATH=$PATH:/home/dneumann/.repos/lem
 
