@@ -57,3 +57,5 @@ export PATH=$PATH:/home/dneumann/.spicetify
 export PATH=$PATH:/home/dneumann/.config/scripts
 export PATH=$PATH:/home/dneumann/.repos/lem
 
+# opam configuration
+[[ ! -r /home/dneumann/.opam/opam-init/init.zsh ]] || source /home/dneumann/.opam/opam-init/init.zsh  > /dev/null 2> /dev/null

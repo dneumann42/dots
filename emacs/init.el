@@ -118,6 +118,7 @@
   :defer t
   :init
   (with-eval-after-load 'winum
+    (define-key winum-keymap (kbd "C-M-0") #'treemacs)
     (define-key winum-keymap (kbd "M-0") #'treemacs-select-window))
   :config
   (progn
@@ -351,6 +352,11 @@
   :ensure t
   :config)
 
+(use-package eros
+  :ensure t
+  :config
+  (eros-mode))
+
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -359,7 +365,7 @@
  '(custom-safe-themes
    '("4c7228157ba3a48c288ad8ef83c490b94cb29ef01236205e360c2c4db200bb18" default))
  '(package-selected-packages
-   '(dumb-jump dump-jump geiser-guile nim-mode shell-pop geiser-racket paredit lispy parinfer-rust-mode moody which-key treemacs-tab-bar treemacs-persp treemacs-magit treemacs-icons-dired treemacs-projectile treemacs-evil treemacs sly nord-theme corfu smartparens lsp-ui lsp-mode)))
+   '(eros dumb-jump dump-jump geiser-guile nim-mode shell-pop geiser-racket paredit lispy parinfer-rust-mode moody which-key treemacs-tab-bar treemacs-persp treemacs-magit treemacs-icons-dired treemacs-projectile treemacs-evil treemacs sly nord-theme corfu smartparens lsp-ui lsp-mode)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
