@@ -62,8 +62,16 @@ for scr in "$DOTFILES_DIR/scripts"/*; do
   execute "rm -rf $target/$(basename -- $target)"
 done
 
-execute "ln -sf $DOTFILES_DIR/emacs $HOME/.emacs.d"
-execute "rm -rf $DOTFILES_DIR/emacs/emacs"
+EMACS_DIR="$HOME/.emacs.d/"
+if [ -d $EMACS_DIR ]; then
+  pushd $EMACS_DIR > /dev/null
+  git stash
+  git pull
+  git stash pop
+  popd > /dev/null
+else
+    execute "git clone git@github.com:dneumann42/dneumacs.git $EMACS_DIR"
+fi
 
 for src in "$DOTFILES_DIR/zsh"/*; do
     execute "ln -sf $src $HOME/.$(basename -- $src)"
