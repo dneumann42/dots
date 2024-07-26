@@ -87,7 +87,7 @@
         "spacing": 10
     },
     "clock": {
-      "interval": 1,
+      "interval": 5,
       "format": "{:%r | %a %b %d, %Y}  ",
       "format-alt": "{:%a %B %d, %Y (%R)}",
       "tooltip-format": "<tt><small>{calendar}</small></tt>",
@@ -157,16 +157,16 @@
     },
     "network": {
         // "interface": "wlp2*", // (Optional) To force the use of this interface
-        "format-wifi": "{essid} ({signalStrength}%) ",
-        "format-ethernet": " {signalStrength}%",
-        "tooltip-format": "{ifname} via {gwaddr} ",
-        "format-linked": "{ifname} (No IP) ",
-        "format-disconnected": "Disconnected ⚠",
+        "format-wifi": "{essid}   ({signalStrength}%) ",
+        "format-ethernet": "   {signalStrength}%",
+        "tooltip-format": "{ifname}   via {gwaddr} ",
+        "format-linked": "{ifname}   (No IP) ",
+        "format-disconnected": "Disconnected   ⚠",
         "format-alt": "{ifname}: {ipaddr}/{cidr}"
     },
     "pulseaudio": {
         // "scroll-step": 1, // %, can be a float
-        "format": "{icon} {volume}% {format_source}",
+        "format": "{icon}   {volume}% {format_source}",
         "format-bluetooth": "{volume}% {icon} {format_source}",
         "format-bluetooth-muted": " {icon} {format_source}",
         "format-muted": " {format_source}",

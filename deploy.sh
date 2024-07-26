@@ -45,6 +45,7 @@ mkdir -p "$CONFIG_DIR/scripts"
 for cfg in "$DOTFILES_DIR/configs"/*; do
   src="$cfg"
   target="$CONFIG_DIR/$(printf "%s" "$cfg" | sed "s/.*\/\(.*\)/\1/g")"
+  echo "$target"
   execute "ln -sf $src $target" "$src -> $target"
   execute "rm -rf $target/$(basename -- $target)"
 done

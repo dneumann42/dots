@@ -53,9 +53,10 @@ alias cls="clear"
 alias zellij="zellij -l compact"
 alias dots="pushd $HOME/.dots"
 
-export PATH=$PATH:/home/dneumann/.spicetify
-export PATH=$PATH:/home/dneumann/.config/scripts
-export PATH=$PATH:/home/dneumann/.repos/lem
+export PATH=$PATH:$HOME/.spicetify
+export PATH=$PATH:$HOME/.config/scripts
+export PATH=$PATH:$HOME/.repos/lem
+export PATH=$PATH:$HOME/.repos/zls/zig-out/bin
 
 # opam configuration
 [[ ! -r /home/dneumann/.opam/opam-init/init.zsh ]] || source /home/dneumann/.opam/opam-init/init.zsh  > /dev/null 2> /dev/null
