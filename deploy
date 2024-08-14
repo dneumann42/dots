@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+export DOTS_DIR=$HOME/.dots
+
+dconf load / < $DOTS_DIR/gnome-settings

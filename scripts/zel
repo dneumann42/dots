@@ -1,8 +1,0 @@
-#!/bin/zsh
-
-if [ -e "/usr/bin/zellij" ]; then
-  if [ -n "$ZELLIJ" ]; then
-  else
-    zellij attach main --create
-  fi
-fi
