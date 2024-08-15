@@ -1,0 +1,35 @@
+#!/usr/bin/env bash
+
+mkdir -p $HOME/.local/bin
+INSTALL_SCRIPT=$HOME/.local/bin/guix-install.sh
+SCRIPT_URL="https://git.savannah.gnu.org/cgit/guix.git/plain/etc/guix-install.sh"
+
+run_install() {
+	source $INSTALL_SCRIPT
+}
+
+if [ ! -f $INSTALL_SCRIPT ]; then
+	if [ "$1" = "--check" ]; then
+		exit 0;
+	fi
+
+	curl "$SCRIPT_URL" -o "$INSTALL_SCRIPT"
+	read -p "Review before running install script? (y/n) "
+	if [[ $REPLY =~ ^[Yy]$ ]]; then
+	 	less $INSTALL_SCRIPT
+		read -p "Run install script? (y/n) "
+		if [[ $REPLY =~ ^[Yy]$ ]]; then
+			run_install
+		fi
+		exit;
+	else
+		run_install	
+	fi
+else
+	if [ "$1" = "--check" ]; then
+		exit 1;
+	fi
+
+	run_install	
+fi
+

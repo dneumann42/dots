@@ -2,4 +2,6 @@
 
 export DOTS_DIR=$HOME/.dots
 
-dconf load / < $DOTS_DIR/gnome-settings
+# dconf load / < $DOTS_DIR/gnome-settings
+
+./guix-setup --check && sudo ./guix-setup
