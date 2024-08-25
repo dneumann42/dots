@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+PACKAGES=(
+  "git"
+  "zsh"
+  "neovim"
+)
+
+sudo dnf update
+sudo dnf upgrade
+sudo dnf install ${PACKAGES[@]}

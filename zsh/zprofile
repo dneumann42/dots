@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+
+export DOTS_DIR=$HOME/Dots
+
+export PNPM_HOME="/home/dneumann/.local/share/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+
+export PATH=/home/dneumann/.nimble/bin:$PATH
+export PATH="$PATH:/home/dneumann/.local/share/JetBrains/Toolbox/scripts"
+export PATH=$PATH:$HOME/.spicetify
+export PATH=$PATH:$HOME/.config/scripts
+export PATH=$PATH:$HOME/.repos/lem
+export PATH=$PATH:$HOME/.repos/zls/zig-out/bin
+
+# opam configuration
+[[ ! -r /home/dneumann/.opam/opam-init/init.zsh ]] || source /home/dneumann/.opam/opam-init/init.zsh  > /dev/null 2> /dev/null

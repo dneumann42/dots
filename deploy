@@ -1,7 +1,14 @@
 #!/usr/bin/env bash
 
-export DOTS_DIR=$HOME/.dots
+export DOTS_DIR=$HOME/Dots
+source "$DOTS_DIR/pretty"
 
 # dconf load / < $DOTS_DIR/gnome-settings
 
-./guix-setup --check && sudo ./guix-setup
+./install-packages
+
+# ./guix-setup --check && sudo ./guix-setup
+
+for src in "$DOTS_DIR/zsh"/*; do
+    execute "ln -sf $src $HOME/.$(basename -- $src)"
+done
