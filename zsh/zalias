@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+alias gs="git status"
+alias ga="git add ."
+alias gc="git commit"
+alias n="notes"
+alias ns="notes --status"
+alias nsy="notes --sync"
+alias no="notes --open"
+alias nd="notes --daily"

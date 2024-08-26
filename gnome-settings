@@ -1,3 +1,6 @@
+[org/gnome/GWeather4]
+temperature-unit='fahrenheit'
+
 [org/gnome/TextEditor]
 highlight-current-line=true
 show-grid=true
@@ -5,18 +8,30 @@ style-scheme='peninsula-dark'
 
 [org/gnome/Weather]
 locations=[<(uint32 2, <('Walla Walla', 'KALW', true, [(0.80450951870678611, -2.0644481671288233)], [(0.80397860700162194, -2.0654753632067924)])>)>]
-window-height=496
+window-height=999
 window-maximized=false
-window-width=992
+window-width=1550
+
+[org/gnome/boxes]
+first-run=false
+view='icon-view'
+window-maximized=false
+window-position=[26, 23]
+window-size=[768, 600]
 
 [org/gnome/calendar]
 active-view='month'
-window-maximized=true
-window-size=(768, 600)
+window-maximized=false
+window-size=(1468, 843)
+
+[org/gnome/clocks/state/window]
+maximized=false
+panel-id='world'
+size=(870, 690)
 
 [org/gnome/control-center]
-last-panel='search'
-window-state=(980, 575, false)
+last-panel='keyboard'
+window-state=(1235, 852, false)
 
 [org/gnome/desktop/app-folders]
 folder-children=['Utilities', 'YaST', 'Pardus']
@@ -37,6 +52,14 @@ categories=['X-SuSE-YaST']
 name='suse-yast.directory'
 translate=true
 
+[org/gnome/desktop/background]
+color-shading-type='solid'
+picture-options='zoom'
+picture-uri='file:///home/dneumann/.local/share/backgrounds/2024-08-19-07-34-02-Celestial%20Cloudscape%20%5B1920x1080%5D.jpeg'
+picture-uri-dark='file:///home/dneumann/.local/share/backgrounds/2024-08-19-07-34-02-Celestial%20Cloudscape%20%5B1920x1080%5D.jpeg'
+primary-color='#000000000000'
+secondary-color='#000000000000'
+
 [org/gnome/desktop/input-sources]
 current=uint32 0
 sources=[('xkb', 'us')]
@@ -46,7 +69,8 @@ color-scheme='prefer-dark'
 toolkit-accessibility=false
 
 [org/gnome/desktop/notifications]
-application-children=['org-gnome-software', 'com-slack-slack', 'org-mozilla-firefox', 'jetbrains-toolbox', 'org-gnome-terminal', 'com-discordapp-discord']
+application-children=['org-gnome-software', 'com-slack-slack', 'org-mozilla-firefox', 'jetbrains-toolbox', 'org-gnome-terminal', 'com-discordapp-discord', 'gnome-power-panel', 'org-freedesktop-problems-applet', 'dev-zed-zed', 'jetbrains-webstorm-92963c1c-2dd4-4b09-b34c-7a298ee777d5', 'com-spotify-client', 'us-zoom-zoom', 'jetbrains-idea-c693d6e1-6ae8-4e5e-884c-e40214f5d7e5', 'org-gnome-boxes']
+show-banners=false
 
 [org/gnome/desktop/notifications/application/com-discordapp-discord]
 application-id='com.discordapp.Discord.desktop'
@@ -54,8 +78,29 @@ application-id='com.discordapp.Discord.desktop'
 [org/gnome/desktop/notifications/application/com-slack-slack]
 application-id='com.slack.Slack.desktop'
 
+[org/gnome/desktop/notifications/application/com-spotify-client]
+application-id='com.spotify.Client.desktop'
+
+[org/gnome/desktop/notifications/application/dev-zed-zed]
+application-id='dev.zed.Zed.desktop'
+
+[org/gnome/desktop/notifications/application/gnome-power-panel]
+application-id='gnome-power-panel.desktop'
+
+[org/gnome/desktop/notifications/application/jetbrains-idea-c693d6e1-6ae8-4e5e-884c-e40214f5d7e5]
+application-id='jetbrains-idea-c693d6e1-6ae8-4e5e-884c-e40214f5d7e5.desktop'
+
 [org/gnome/desktop/notifications/application/jetbrains-toolbox]
 application-id='jetbrains-toolbox.desktop'
+
+[org/gnome/desktop/notifications/application/jetbrains-webstorm-92963c1c-2dd4-4b09-b34c-7a298ee777d5]
+application-id='jetbrains-webstorm-92963c1c-2dd4-4b09-b34c-7a298ee777d5.desktop'
+
+[org/gnome/desktop/notifications/application/org-freedesktop-problems-applet]
+application-id='org.freedesktop.problems.applet.desktop'
+
+[org/gnome/desktop/notifications/application/org-gnome-boxes]
+application-id='org.gnome.Boxes.desktop'
 
 [org/gnome/desktop/notifications/application/org-gnome-software]
 application-id='org.gnome.Software.desktop'
@@ -66,27 +111,96 @@ application-id='org.gnome.Terminal.desktop'
 [org/gnome/desktop/notifications/application/org-mozilla-firefox]
 application-id='org.mozilla.firefox.desktop'
 
+[org/gnome/desktop/notifications/application/us-zoom-zoom]
+application-id='us.zoom.Zoom.desktop'
+
 [org/gnome/desktop/peripherals/touchpad]
 two-finger-scrolling-enabled=true
 
 [org/gnome/desktop/privacy]
 report-technical-problems=false
 
+[org/gnome/desktop/screensaver]
+color-shading-type='solid'
+picture-options='zoom'
+picture-uri='file:///home/dneumann/.local/share/backgrounds/2024-08-19-07-34-02-Celestial%20Cloudscape%20%5B1920x1080%5D.jpeg'
+primary-color='#000000000000'
+secondary-color='#000000000000'
+
 [org/gnome/desktop/search-providers]
 sort-order=['org.gnome.Contacts.desktop', 'org.gnome.Documents.desktop', 'org.gnome.Nautilus.desktop']
 
+[org/gnome/desktop/session]
+idle-delay=uint32 600
+
+[org/gnome/desktop/wm/keybindings]
+close=['<Super>q']
+
+[org/gnome/evince]
+document-directory=@ms nothing
+
+[org/gnome/evince/default]
+continuous=true
+dual-page=false
+dual-page-odd-left=false
+enable-spellchecking=true
+fullscreen=false
+inverted-colors=true
+show-sidebar=true
+sidebar-page='links'
+sidebar-size=148
+sizing-mode='free'
+window-ratio=(1.6388888888888888, 0.79671717171717171)
+zoom=0.83333333333333337
+
 [org/gnome/evolution-data-server]
 migrated=true
+
+[org/gnome/gnome-system-monitor]
+current-tab='resources'
+show-dependencies=false
+show-whose-processes='user'
+window-height=1077
+window-width=1699
+
+[org/gnome/gnome-system-monitor/disktreenew]
+col-6-visible=true
+col-6-width=0
 
 [org/gnome/login-screen]
 enable-fingerprint-authentication=true
 enable-smartcard-authentication=false
 
 [org/gnome/nautilus/preferences]
+default-folder-viewer='icon-view'
 migrated-gtk-settings=true
+search-filter-time-type='last_modified'
+
+[org/gnome/nautilus/window-state]
+initial-size=(890, 550)
+
+[org/gnome/portal/filechooser/com.discordapp.Discord]
+last-folder-path='/home/dneumann/Downloads'
+
+[org/gnome/portal/filechooser/dev.zed.Zed]
+last-folder-path='/home/dneumann/Work/campus-experience'
+
+[org/gnome/portal/filechooser/gnome-background-panel]
+last-folder-path='/home/dneumann/Downloads'
+
+[org/gnome/settings-daemon/plugins/media-keys]
+custom-keybindings=['/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/']
+
+[org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0]
+binding='<Super>Return'
+command='gnome-terminal'
+name='Launch Terminal'
+
+[org/gnome/settings-daemon/plugins/power]
+sleep-inactive-ac-timeout=3600
 
 [org/gnome/shell]
-app-picker-layout=[{'org.gnome.Snapshot.desktop': <{'position': <0>}>, 'org.gnome.Contacts.desktop': <{'position': <1>}>, 'org.gnome.Weather.desktop': <{'position': <2>}>, 'org.gnome.clocks.desktop': <{'position': <3>}>, 'org.gnome.Maps.desktop': <{'position': <4>}>, 'org.fedoraproject.MediaWriter.desktop': <{'position': <5>}>, 'libreoffice-calc.desktop': <{'position': <6>}>, 'org.gnome.Totem.desktop': <{'position': <7>}>, 'org.gnome.Calculator.desktop': <{'position': <8>}>, 'libreoffice-impress.desktop': <{'position': <9>}>, 'simple-scan.desktop': <{'position': <10>}>, 'org.gnome.Settings.desktop': <{'position': <11>}>, 'org.gnome.SystemMonitor.desktop': <{'position': <12>}>, 'org.gnome.Boxes.desktop': <{'position': <13>}>, 'org.gnome.Terminal.desktop': <{'position': <14>}>, 'Utilities': <{'position': <15>}>, 'libreoffice-writer.desktop': <{'position': <16>}>, 'yelp.desktop': <{'position': <17>}>, 'org.gnome.Rhythmbox3.desktop': <{'position': <18>}>, 'org.gnome.Tour.desktop': <{'position': <19>}>, 'com.slack.Slack.desktop': <{'position': <20>}>}]
+app-picker-layout=[{'org.gnome.Snapshot.desktop': <{'position': <0>}>, 'org.gnome.Contacts.desktop': <{'position': <1>}>, 'org.gnome.Weather.desktop': <{'position': <2>}>, 'org.gnome.clocks.desktop': <{'position': <3>}>, 'org.gnome.Maps.desktop': <{'position': <4>}>, 'org.fedoraproject.MediaWriter.desktop': <{'position': <5>}>, 'libreoffice-calc.desktop': <{'position': <6>}>, 'org.gnome.Totem.desktop': <{'position': <7>}>, 'org.gnome.Calculator.desktop': <{'position': <8>}>, 'libreoffice-impress.desktop': <{'position': <9>}>, 'simple-scan.desktop': <{'position': <10>}>, 'org.gnome.Settings.desktop': <{'position': <11>}>, 'org.gnome.SystemMonitor.desktop': <{'position': <12>}>, 'org.gnome.Boxes.desktop': <{'position': <13>}>, 'org.gnome.Terminal.desktop': <{'position': <14>}>, 'Utilities': <{'position': <15>}>, 'libreoffice-writer.desktop': <{'position': <16>}>, 'yelp.desktop': <{'position': <17>}>, 'org.gnome.Rhythmbox3.desktop': <{'position': <18>}>, 'org.gnome.Tour.desktop': <{'position': <19>}>, 'com.slack.Slack.desktop': <{'position': <20>}>, 'com.play0ad.zeroad.desktop': <{'position': <21>}>, 'org.chromium.Chromium.desktop': <{'position': <22>}>, 'com.discordapp.Discord.desktop': <{'position': <23>}>}, {'emacs.desktop': <{'position': <0>}>, 'io.github.endless_sky.endless_sky.desktop': <{'position': <1>}>, 'jetbrains-idea-c693d6e1-6ae8-4e5e-884c-e40214f5d7e5.desktop': <{'position': <2>}>, 'jetbrains-toolbox.desktop': <{'position': <3>}>, 'lazarus.desktop': <{'position': <4>}>, 'nvim.desktop': <{'position': <5>}>, 'md.obsidian.Obsidian.desktop': <{'position': <6>}>, 'jetbrains-webstorm-92963c1c-2dd4-4b09-b34c-7a298ee777d5.desktop': <{'position': <7>}>, 'dev.zed.Zed.desktop': <{'position': <8>}>, 'us.zoom.Zoom.desktop': <{'position': <9>}>}]
 welcome-dialog-last-shown-version='46.0'
 
 [org/gnome/shell/weather]
@@ -97,14 +211,45 @@ locations=[<(uint32 2, <('Walla Walla', 'KALW', true, [(0.80450951870678611, -2.
 locations=@av []
 
 [org/gnome/software]
-check-timestamp=int64 1723574542
+check-timestamp=int64 1724598210
 first-run=false
-flatpak-purge-timestamp=int64 1723596654
-update-notification-timestamp=int64 1723574552
+flatpak-purge-timestamp=int64 1724548422
+install-timestamp=int64 1723910918
+packagekit-historical-updates-timestamp=uint64 1723910918
+update-notification-timestamp=int64 1723911037
 
 [org/gnome/system/location]
 enabled=true
 
+[org/gnome/terminal/legacy/profiles:/:b1dcc9dd-5262-4d8d-a863-c897e6d979b9]
+background-color='rgb(0,43,54)'
+background-transparency-percent=9
+foreground-color='rgb(131,148,150)'
+use-theme-colors=false
+use-transparent-background=true
+
 [org/gtk/gtk4/settings/file-chooser]
+date-format='regular'
+location-mode='path-bar'
 show-hidden=false
+sidebar-width=140
+sort-column='modified'
 sort-directories-first=false
+sort-order='descending'
+type-format='category'
+view-type='list'
+window-size=(992, 628)
+
+[org/gtk/settings/file-chooser]
+date-format='regular'
+location-mode='path-bar'
+show-hidden=false
+show-size-column=true
+show-type-column=true
+sidebar-width=157
+sort-column='name'
+sort-directories-first=false
+sort-order='ascending'
+type-format='category'
+window-position=(26, 23)
+window-size=(1231, 902)

@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+
+dconf dump / > $DOTS_DIR/gnome-settings

@@ -1,14 +1,21 @@
 #!/usr/bin/env bash
-
-export DOTS_DIR=$HOME/Dots
-source "$DOTS_DIR/pretty"
+export DOTFILES="$HOME/Dots"
+source "$DOTFILES/pretty"
 
 # dconf load / < $DOTS_DIR/gnome-settings
 
-./install-packages
+"$DOTFILES/install-packages"
 
 # ./guix-setup --check && sudo ./guix-setup
 
-for src in "$DOTS_DIR/zsh"/*; do
+for src in "$DOTFILES/zsh"/*; do
     execute "ln -sf $src $HOME/.$(basename -- $src)"
 done
+
+mkdir -p "$HOME/.local/bin"
+for src in "$DOTFILES/scripts"/*; do
+    execute "ln -sf $src $HOME/.local/bin/$(basename -- $src)"
+done
+
+# symlink the dialog rc file
+execute "ln -sf $DOTFILES/dialogrc $HOME/.dialogrc"

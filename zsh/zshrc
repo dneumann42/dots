@@ -41,8 +41,8 @@ configure_zsh_navigation() {
   setopt AUTO_PUSHD
   setopt PUSHD_IGNORE_DUPS
   setopt PUSHD_SILENT
-  setopt CORRECT # spelling correction
-  setopt CDABLE_VARS # can change directory to paths stored in variable
+  setopt CORRECT # Spelling correction
+  setopt CDABLE_VARS # Can change directory to paths stored in variable
 }
 
 configure_zsh_history() {
