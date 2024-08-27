@@ -4,6 +4,7 @@ PACKAGES=(
   "dialog"
   "git"
   "zsh"
+  "fzf"
   "neovim"
 )
 

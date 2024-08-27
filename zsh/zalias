@@ -3,8 +3,12 @@
 alias gs="git status"
 alias ga="git add ."
 alias gc="git commit"
+
 alias n="notes"
 alias ns="notes --status"
 alias nsy="notes --sync"
 alias no="notes --open"
+alias nos="notes --search"
 alias nd="notes --daily"
+alias ned="notes ed"
+alias ncd="notes cd"

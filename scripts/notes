@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+# dependencies: dialog, git, fzf
+
 NOTES_PATH="$HOME/Notes"
 DAILY_FOLDER="daily"
 DATE_FORMAT="+%Y-%m-%d"
@@ -26,41 +28,54 @@ create_new_note() {
   $EDITOR "$1"
 }
 
-get_daily_note_path() {
-  echo "$DAILY_FOLDER/$(date "$DATE_FORMAT").md"
+get_daily_note_name() {
+  echo "$(date "$DATE_FORMAT")"
 }
 
 open_daily_note() {
-  NOTE_PATH="$NOTES_PATH/$(get_daily_note_path)"
+  NOTE_NAME=$(get_daily_note_name)
+  NOTE_PATH="$NOTES_PATH/$DAILY_FOLDER/$NOTE_NAME.md"
   if [ -f "$NOTE_PATH" ]; then
     $EDITOR "$NOTE_PATH" 
   else
-    create_new_note "$NOTE_PATH"
+    create_new_note "$NOTE_PATH" "$NOTE_NAME"
   fi
 }
 
 open_note() {
   exec 3>&1; # redirect stream 3 to 1
-  result=$(dialog \
-    --begin 0 0 \
-    --title "Choose a note" \
-    --fselect $NOTES_PATH/ 14 80 2>&1 1>&3);
+  result=$(
+    dialog \
+      --begin 0 0 \
+      --title "Choose a note" \
+      --fselect $NOTES_PATH/ 14 80 2>&1 1>&3
+  );
   exitcode=$?;
   exec 3>&-;
   [ "$exitcode" -eq 0 ] && $EDITOR "$result"
 }
 
+search_note() {
+  pushd $NOTES_PATH > /dev/null
+  OPTIONS=$(find . -name "*.md" -type f | sort)
+  popd > /dev/null
+  ITEM=$(printf '%s\n' "${OPTIONS[@]}" | fzf --height=50% --layout=reverse --border)
+  [ "$?" -eq 0 ] && $EDITOR "$ITEM"
+}
+
 show_command_menu() {
   exec 3>&1; # redirect stream 3 to 1
-  result=$(dialog \
-    --begin 0 0 \
-    --menu 'Choose an action' 18 70 15 \
-    "new" "New note" \
-    "open" "Open note" \
-    "daily" "Open daily note" \
-    "status" "Git status for notes" \
-    "sync" "Sync notes changes" \
-    2>&1 1>&3);
+  result=$(
+    dialog \
+      --begin 0 0 \
+      --menu 'Choose an action' 18 70 15 \
+      "new" "New note" \
+      "open" "Open note" \
+      "daily" "Open daily note" \
+      "status" "Git status for notes" \
+      "sync" "Sync notes changes" \
+      2>&1 1>&3
+  );
   exitcode=$?;
   exec 3>&-;
   [ "$exitcode" -eq 0 ] && handle_argument "--$result" "return_to_menu"
@@ -68,7 +83,6 @@ show_command_menu() {
 
 git_status() {
   RETURN="$1"; shift
-  # returns git status
   pushd $NOTES_PATH > /dev/null
   STATUS=$(git status)
   popd > /dev/null
@@ -102,9 +116,12 @@ handle_argument() {
   case "$CMD" in
     "--new") new_note $@ ;;
     "--open") open_note $@ ;;
+    "--search") search_note $@ ;;
     "--daily") open_daily_note $@ ;;
     "--status") git_status $@ ;;
-    # "--sync") git_sync $@ ;;
+    "--sync") git_sync $@ ;;
+    "cd") cd $NOTES_PATH ;;
+    "ed") cd $NOTES_PATH && $EDITOR . ;;
     *) show_command_menu ;;
   esac
 }
