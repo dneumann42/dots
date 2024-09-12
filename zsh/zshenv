@@ -6,5 +6,7 @@ export VISUAL="nvim"
 export BROWSER="firefox"
 export GIT_REVIEW_BASE=main # See gitconfig
 export TERM='rxvt-256color'
-export DOTFILES="$HOME/Dots"
 export REPOS="$HOME/Repos"
+# this is platform specific, I should move this to a 
+# generated script that isn't versioned controlled 
+export DOTFILES="/home/dneumann/Dots"

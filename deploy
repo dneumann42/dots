@@ -1,21 +1,35 @@
 #!/usr/bin/env bash
-export DOTFILES="$HOME/Dots"
+export DOTFILES=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
 source "$DOTFILES/pretty"
+
+# Replaces DOTFILEs in zshenv to point to 'DOTFILES' here
+sed -i 's|DOTFILES=.*$|DOTFILES="'"$DOTFILES"'"|g' "$DOTFILES/zsh/zshenv"
 
 # dconf load / < $DOTS_DIR/gnome-settings
 
-"$DOTFILES/install-packages"
-
 # ./guix-setup --check && sudo ./guix-setup
 
-for src in "$DOTFILES/zsh"/*; do
-    execute "ln -sf $src $HOME/.$(basename -- $src)"
-done
+create_symlinks() {
+  for src in "$DOTFILES/zsh"/*; do
+      execute "ln -sf $src $HOME/.$(basename -- $src)"
+  done
 
-mkdir -p "$HOME/.local/bin"
-for src in "$DOTFILES/scripts"/*; do
-    execute "ln -sf $src $HOME/.local/bin/$(basename -- $src)"
-done
+  mkdir -p "$HOME/.local/bin"
+  for src in "$DOTFILES/scripts"/*; do
+      execute "ln -sf $src $HOME/.local/bin/$(basename -- $src)"
+  done
 
-# symlink the dialog rc file
-execute "ln -sf $DOTFILES/dialogrc $HOME/.dialogrc"
+  mkdir -p "$HOME/.config"
+  for cfg in "$DOTFILES/config"/*; do
+    src="$cfg"
+    target="$HOME/.config/$(printf "%s" "$cfg" | sed "s/.*\/\(.*\)/\1/g")"
+    execute "ln -sf $src $target" "$src -> $target"
+    execute "rm -rf $target/$(basename -- $target)"
+  done
+
+  # symlink the dialog rc file
+  execute "ln -sf $DOTFILES/dialogrc $HOME/.dialogrc"
+}
+
+[[ "$1" == *i* ]] && "$DOTFILES/install-packages"
+[[ "$1" == *s* ]] && create_symlinks;
