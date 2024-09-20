@@ -6,7 +6,6 @@ mkdir -p "$PLUGIN_DIR"
 
 ZSH_AUTO_SUGGESTIONS="$PLUGIN_DIR/zsh-autosuggestions"
 ZSH_SYNTAX_HIGHLIGHTING="$PLUGIN_DIR/zsh-syntax-highlighting"
-# ZSH_BETTER_VI_MODE="$PLUGIN_DIR/zsh-vi-mode"
 
 install_zplugins() {
   if [ ! -f "$ZSH_AUTO_SUGGESTIONS"/zsh-autosuggestions.zsh ]; then
@@ -15,15 +14,11 @@ install_zplugins() {
   if [ ! -f "$ZSH_SYNTAX_HIGHLIGHTING"/zsh-syntax-highlighting.zsh ]; then
     git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $ZSH_SYNTAX_HIGHLIGHTING
   fi
-  # if [ ! -f "$ZSH_BETTER_VI_MODE"/zsh-vi-mode.plugin.zsh ]; then
-  #   git clone https://github.com/jeffreytse/zsh-vi-mode.git $ZSH_BETTER_VI_MODE
-  # fi
 }
 
 source_plugins() {
   source "$ZSH_AUTO_SUGGESTIONS/zsh-autosuggestions.zsh"
   source "$ZSH_SYNTAX_HIGHLIGHTING/zsh-syntax-highlighting.zsh"
-  # source "$ZSH_BETTER_VI_MODE/zsh-vi-mode.plugin.zsh"
 }
 
 install_ps1() {

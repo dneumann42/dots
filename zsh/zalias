@@ -12,3 +12,7 @@ alias nos="notes --search"
 alias nd="notes --daily"
 alias ned="notes ed"
 alias ncd="notes cd"
+
+alias repos="cd $REPOS"
+alias docs="cd $HOME/Documents"
+alias down="cd $HOME/Downloads"
