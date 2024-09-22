@@ -9,4 +9,5 @@ export TERM='rxvt-256color'
 export REPOS="$HOME/Repos"
 # this is platform specific, I should move this to a 
 # generated script that isn't versioned controlled 
-export DOTFILES="/home/dneumann/Dots"
+export DOTFILES="/home/dneumann/.dots"
+. "$HOME/.cargo/env"
