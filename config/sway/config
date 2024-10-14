@@ -5,7 +5,7 @@ set $down j
 set $up k
 set $right l
 set $term alacritty
-set $menu dmenu_path | wmenu | xargs swaymsg exec --
+set $menu rofi -show drun -theme DarkBlue -show-icons
 
 gaps inner 8
 gaps outer 8
