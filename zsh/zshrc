@@ -69,3 +69,15 @@ source_plugins
 install_ps1
 configure_zsh
 emacs_mode
+
+# opam configuration
+[[ ! -r /home/dneumann/.opam/opam-init/init.zsh ]] || source /home/dneumann/.opam/opam-init/init.zsh  > /dev/null 2> /dev/null
+
+# >>> juliaup initialize >>>
+
+# !! Contents within this block are managed by juliaup !!
+
+path=('/home/dneumann/.juliaup/bin' $path)
+export PATH
+
+# <<< juliaup initialize <<<

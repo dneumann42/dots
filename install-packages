@@ -8,11 +8,19 @@ PACKAGES=(
   "neovim"
   "ffmpeg-free"
   "puddletag"
+  "tmux"
 )
 
 sudo dnf update
 sudo dnf upgrade
 sudo dnf install ${PACKAGES[@]}
 
-# TODO: handle proton mail brige
-# https://proton.me/download/bridge/protonmail-bridge-3.13.0-1.x86_64.rpm
+# Tmux theme
+
+if [ ! -d "$HOME/.local/share/minimal-tmux-status" ]; then
+  mkdir -p "$HOME/.local/share/minimal-tmux-status"
+  git clone https://github.com/niksingh710/minimal-tmux-status.git "$HOME/.local/share/minimal-tmux-status"
+fi
+
+# Install ocaml
+

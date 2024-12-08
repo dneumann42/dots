@@ -14,9 +14,10 @@ export PATH=$PATH:$HOME/.spicetify
 export PATH=$PATH:$HOME/.config/scripts
 export PATH=$PATH:$HOME/.repos/lem
 export PATH=$PATH:$HOME/.local/bin
+export PATH=$PATH:$HOME/.local/zig
 export PATH=$PATH:$HOME/.repos/zls/zig-out/bin
+export PATH=$PATH:$HOME/.juliaup/bin
 export PATH=$PATH:$HOME/bin
-
 
 # opam configuration
 [[ ! -r /home/dneumann/.opam/opam-init/init.zsh ]] || source /home/dneumann/.opam/opam-init/init.zsh  > /dev/null 2> /dev/null

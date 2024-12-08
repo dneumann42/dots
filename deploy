@@ -29,6 +29,7 @@ create_symlinks() {
 
   # symlink the dialog rc file
   execute "ln -sf $DOTFILES/dialogrc $HOME/.dialogrc"
+
 }
 
 [[ "$1" == *i* ]] && "$DOTFILES/install-packages"
