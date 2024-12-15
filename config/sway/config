@@ -22,9 +22,11 @@ for_window [app_id=".*"] opacity $opacity
 for_window [class="VSCodium"] opacity 0.95
 
 exec swayidle -w \
-        timeout 300 'swaylock -f -c 000000' \
+        timeout 300 'lockscreen' \
         timeout 600 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
-         before-sleep 'swaylock -f -c 000000'
+         before-sleep 'lockscreen'
+
+bindsym $mod+Shift+Ctrl+l exec 'lockscreen'
 
 input "1739:31251:SYNA2393:00_06CB:7A13_Touchpad" {
     dwt enabled

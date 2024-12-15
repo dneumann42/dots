@@ -9,6 +9,11 @@ PACKAGES=(
   "ffmpeg-free"
   "puddletag"
   "tmux"
+  "ImageMagick"
+  "grim"
+  "swayimg"
+  "blueman"
+  "rofi"
 )
 
 sudo dnf update

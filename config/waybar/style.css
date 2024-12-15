@@ -19,7 +19,9 @@ button {
 #workspaces button {
     color: #ffffff;
     border-radius: 16px;
-
+    margin-top: 4px;
+    margin-bottom: 4px;
+    margin-left: 4px;
 }
 
 #workspaces button:hover {
@@ -45,7 +47,6 @@ button {
 #pulseaudio,
 #tray,
 #mode,
-#idle_inhibitor,
 #window,
 #workspaces {
     margin: 0 10px;
@@ -92,9 +93,6 @@ label:focus {
 }
 
 #idle_inhibitor {
-    font-size: 15px;
-    background-color: #333333;
-    padding: 5px;
     border-radius: 16px;
 }
 
