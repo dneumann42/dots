@@ -40,6 +40,12 @@ input "1739:31251:SYNA2393:00_06CB:7A13_Touchpad" {
 floating_modifier $mod normal
 
 bindsym $mod+Return exec $term
+
+bindsym $mod+Shift+Return exec $term --class="float-term"
+bindsym $mod+p exec $term --class="float-term" -e "notes"
+
+for_window [app_id="float-term"] floating enable
+
 bindsym $mod+Shift+b exec qutebrowser
 bindsym $mod+q kill
 bindsym $mod+F4 exec wkill

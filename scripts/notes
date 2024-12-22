@@ -64,11 +64,21 @@ search_note() {
 }
 
 show_command_menu() {
+  # get status of git
+  sync=""
+  pushd $NOTES_PATH > /dev/null
+  if [ -z "$(git status --porcelain)" ]; then
+    sync="synced"
+  else
+    sync="unsynced"
+  fi
+  popd > /dev/null
+
   exec 3>&1; # redirect stream 3 to 1
   result=$(
     dialog \
       --begin 0 0 \
-      --menu 'Choose an action' 18 70 15 \
+      --menu "Choose an action ($sync)" -1 -1 -1 \
       "new" "New note" \
       "open" "Open note" \
       "daily" "Open daily note" \
@@ -93,7 +103,7 @@ git_status() {
     --title "Git status" \
     --extra-button "$@" \
     --extra-label "Sync" \
-    --msgbox "$STATUS" 22 77;
+    --msgbox "$STATUS" -1 -1;
 
   [ $? -ne 0 ] && git_sync "$RETURN";
   [ "$RETURN" == "return_to_menu" ] && show_command_menu
