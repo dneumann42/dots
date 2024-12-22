@@ -3,6 +3,7 @@
 CACHE_DIR=$HOME/.cache
 mkdir -p $CACHE_DIR
 SCREENSHOT=$CACHE_DIR/screenshot.png
+rm $SCREENSHOT
 grim $SCREENSHOT
 magick $SCREENSHOT -blur 0x16 $SCREENSHOT
 swaylock -f
