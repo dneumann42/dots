@@ -1,0 +1,96 @@
+#!/usr/bin/env bash
+
+CORNER_FLOAT_W=640
+CORNER_FLOAT_H=480
+
+function get-focused-app-id {
+  swaymsg -t get_tree | jq '.. | select(.type?) | select(.focused==true) | .pid'
+}
+
+function make-floating {
+  swaymsg "[pid="$1"] floating enable"
+}
+
+function resize-window {
+  swaymsg "[pid="$1"] resize set $2 $3"
+}
+
+function move-window {
+  swaymsg "[pid="$1"] move position $2 $3"
+}
+
+function make-active-floating {
+  make-floating $(get-focused-app-id)
+}
+
+function get-monitor-dims {
+  swaymsg -t get_workspaces | jq -r '.[] | select(.focused==true).rect | to_entries | map(.value) | .[]'
+}
+
+function corner-float {
+  resize-window $2 $CORNER_FLOAT_W $CORNER_FLOAT_H
+
+  readarray -t dims <<< "$(get-monitor-dims)"
+  x="${dims[0]}"
+  y="${dims[1]}"
+  w="${dims[2]}"
+  h="${dims[3]}"
+
+  case "$1" in
+    "tl" | "top-left")
+      move-window $2 0 0;;
+    "tr" | "top-right")
+      move-window $2 $(( w - CORNER_FLOAT_W )) 0;;
+    "bl" | "bottom-left")
+      move-window $2 $(( w - CORNER_FLOAT_W )) $(( h - CORNER_FLOAT_H ));;
+    "br" | "bottom-right")
+      move-window $2 0 $(( h - CORNER_FLOAT_H ));;
+    **)
+      echo "Unknown corner $1"
+  esac
+}
+
+function mini-player {
+  url=""
+  if [[ $1 == "prompt" ]]; then
+    url=$(yad --entry)
+  else
+    url=$(wl-paste)
+  fi
+
+  IPC_SOC="/tmp/mpv-soc-$$"
+  MPV_LOG="/tmp/mpv-log-$$"
+
+  mpv --input-ipc-server="$IPC_SOC" "$url" > "$MPV_LOG" 2>&1 &
+  pid=$!
+
+  while :; do
+    if [[ -S "$IPC_SOC" ]]; then
+        printf '{ "command": ["get_property", "playback-time"] }\n' | nc -U "$IPC_SOC" | grep -q '"data"'
+        cmd=$?
+        if [[ "$cmd" -eq 0 ]]; then
+            echo "mpv is playing the video."
+            sleep 0.2
+            break
+        fi
+    fi
+    sleep 0.2
+  done
+
+  make-floating "$pid"
+  sleep 0.1
+  corner-float "top-right" "$pid"
+
+  rm -f "$IPC_SOCKET" "$MPV_LOG"
+}
+
+case "$1" in
+  "corner-float")
+      make-active-floating
+      corner-float $2 $(get-focused-app-id) ;;
+  "mini-player")
+      mini-player $2 ;;
+  **)
+      swaynag -t warning -m "Not a valid swaytool command '$1'" ;;
+esac
+

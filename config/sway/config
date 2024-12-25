@@ -18,6 +18,7 @@ default_floating_border pixel 6
 set $opacity 1.0
 for_window [class=".*"] opacity $opacity 
 for_window [app_id=".*"] opacity $opacity 
+for_window [app_id="yad"] floating enable
 
 for_window [class="VSCodium"] opacity 0.95
 
@@ -43,6 +44,8 @@ bindsym $mod+Return exec $term
 
 bindsym $mod+Shift+Return exec $term --class="float-term"
 bindsym $mod+p exec $term --class="float-term" -e "notes"
+bindsym $mod+m exec swaytool mini-player
+bindsym $mod+Shift+m exec swaytool mini-player prompt
 
 for_window [app_id="float-term"] floating enable
 
@@ -130,6 +133,16 @@ mode "resize" {
 }
 
 bindsym $mod+r mode "resize"
+
+mode "corner" {
+    bindsym $left exec swaytool corner-float top-left, mode "default"
+    bindsym $right exec swaytool corner-float top-right, mode "default"
+    bindsym $down exec swaytool corner-float bottom-right, mode "default"
+    bindsym $up exec swaytool corner-float bottom-left, mode "default"
+    bindsym Escape mode "default"
+}
+
+bindsym $mod+z mode "corner"
 
 bar {
   swaybar_command waybar

@@ -16,6 +16,8 @@ then
     "swayimg"
     "blueman"
     "rofi"
+    "jq"
+    "yad"
   )
   sudo dnf update
   sudo dnf upgrade
@@ -38,6 +40,8 @@ then
     "swayimg"
     "blueman"
     "rofi"
+    "jq"
+    "yad"
   )
   sudo pacman -Syu ${PACKAGES[@]}
 fi
