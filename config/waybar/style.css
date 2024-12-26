@@ -1,6 +1,6 @@
 * {
-    font-family: FontAwesome, Roboto, Helvetica, Arial, sans-serif;
-    font-size: 13px;
+    font-family: terminus, sans-serif;
+    font-size: 15px;
 }
 
 #waybar {
@@ -99,4 +99,11 @@ label:focus {
 #idle_inhibitor.activated {
     background-color: #285577;
     border-radius: 16px;
+}
+
+.custom-spotify {
+    padding: 0 10px;
+    margin: 0 4px;
+    background-color: #1DB954;
+    color: black;
 }

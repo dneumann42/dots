@@ -13,11 +13,11 @@
   "modules-left": [
     "sway/workspaces", 
     "sway/mode",
-    "sway/window"
+    "custom/spotify"
   ],
 
   "modules-center": [
-    "custom/menu"
+    "sway/window"
   ],
 
   "modules-right": [
@@ -29,12 +29,6 @@
     "clock", 
     "tray"
   ],
-
-  "custom/menu": {
-    "format": "",
-    "tooltip": false,
-    "on-click": "rofi -show run"
-  },
 
   "sway/mode": {
     "format": "{}"
@@ -98,5 +92,14 @@
   "tray": {
     "icon-size": 20,
     "spacing": 10
+  },
+
+  "custom/spotify": {
+      "exec": "/usr/bin/python3 /home/dneumann/.local/bin/mediaplayer.py --player spotify",
+      "format": "{}  ",
+      "return-type": "json",
+      "on-click": "playerctl play-pause",
+      "on-scroll-up": "playerctl next",
+      "on-scroll-down": "playerctl previous"
   },
 }

@@ -7,13 +7,13 @@ set $right l
 set $term alacritty
 set $menu rofi -show drun -theme DarkBlue -show-icons
 
-gaps inner 4
+gaps inner 8
 gaps outer 8
 
 output * bg $HOME/Pictures/wall.png fill
 
 default_border pixel 4
-default_floating_border pixel 6
+default_floating_border pixel 4
 
 set $opacity 1.0
 for_window [class=".*"] opacity $opacity 
@@ -30,6 +30,7 @@ exec swayidle -w \
 exec nm-applet
 exec mako
 exec notify-send "Welcome!"
+exec mpd
 
 bindsym $mod+Shift+Ctrl+l exec 'lockscreen'
 

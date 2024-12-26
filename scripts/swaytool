@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 CORNER_FLOAT_W=640
-CORNER_FLOAT_H=480
+CORNER_FLOAT_H=400
 
 function get-focused-app-id {
   swaymsg -t get_tree | jq '.. | select(.type?) | select(.focused==true) | .pid'
