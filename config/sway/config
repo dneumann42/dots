@@ -7,7 +7,7 @@ set $right l
 set $term alacritty
 set $menu rofi -show drun -theme DarkBlue -show-icons
 
-gaps inner 8
+gaps inner 4
 gaps outer 8
 
 output * bg $HOME/Pictures/wall.png fill
@@ -48,9 +48,7 @@ bindsym $mod+Shift+Return exec $term --class="float-term"
 bindsym $mod+n exec $term --class="float-term" -e "notes"
 bindsym $mod+m exec swaytool mini-player
 bindsym $mod+Shift+m exec swaytool mini-player prompt
-
-for_window [app_id="float-term"] floating enable
-
+bindsym $mod+Shift+f exec $term --title "vifm" -e "vifm"
 bindsym $mod+b exec firefox
 
 bindsym $mod+q kill
@@ -60,7 +58,16 @@ bindsym $mod+Shift+c reload
 bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'
 
 bindsym $mod+Shift+z exec open-document
+
 for_window [app_id="zathura"] floating enable, resize set 640 900
+for_window [app_id="float-term"] floating enable
+
+bindsym XF86AudioMute exec volume mute
+bindsym XF86AudioRaiseVolume exec volume up 5
+bindsym XF86AudioLowerVolume exec volume down 5
+
+bindsym XF86MonBrightnessUp exec brightness up
+bindsym XF86MonBrightnessDown exec brightness down
 
 bindsym $mod+$left focus left
 bindsym $mod+$down focus down

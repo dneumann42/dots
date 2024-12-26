@@ -3,7 +3,7 @@
 # To view all configuration options.
 
 font=terminus 11
-format=%s\n>> %b
+format=%s\n\n %b
 sort=-time
 output=DP-2
 layer=overlay

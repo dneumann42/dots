@@ -12,12 +12,14 @@
 
   "modules-left": [
     "sway/workspaces", 
-    "sway/mode"
+    "sway/mode",
+    "sway/window"
   ],
 
   "modules-center": [
-    "sway/window"
+    "custom/menu"
   ],
+
   "modules-right": [
     "idle_inhibitor", 
     "cpu", 
@@ -27,9 +29,17 @@
     "clock", 
     "tray"
   ],
+
+  "custom/menu": {
+    "format": "",
+    "tooltip": false,
+    "on-click": "rofi -show run"
+  },
+
   "sway/mode": {
     "format": "{}"
   },
+
   "sway/window": {
     "format": "{title}"
   },

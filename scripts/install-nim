@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+# using choosenim may not be a good idea for the long run
+# but for now this is how ill role
+
+CACHE=$HOME/.cache/choosenim.sh
+if [[ ! -f "$CACHE" ]]; then
+  curl https://nim-lang.org/choosenim/init.sh -sSf > "$CACHE"
+  sh "$CACHE"
+fi
+

@@ -1,0 +1,34 @@
+#!/usr/bin/env bash
+
+function get-brightness {
+  brightnessctl get -P
+}
+
+generate_progress_bar() {
+  local percentage=$1
+  local total_blocks=20
+  local filled_blocks=$((percentage * total_blocks / 100))
+  local unfilled_blocks=$((total_blocks - filled_blocks))
+  printf '%0.s█' $(seq 1 $filled_blocks)
+  printf '%0.s░' $(seq 1 $unfilled_blocks)
+}
+
+function notify-brightness {
+  v=$(get-brightness)
+  notify-send \
+    -e \
+    -t 2000 \
+    -h string:x-canonical-private-synchronous:audio \
+    "Brightness" "$(generate_progress_bar "$v") $v%"
+}
+
+case "$1" in
+  "up") 
+    brightnessctl --min-value=3000 set 10%+
+    notify-brightness ;; 
+  "down")
+    brightnessctl --min-value=3000 set 10%-
+    notify-brightness ;; 
+  **)
+    echo "Unknown command '$1'"
+esac

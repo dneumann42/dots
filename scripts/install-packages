@@ -17,6 +17,8 @@ COMMON=(
   "jq"
   "yad"
   "mako"
+  "vifm"
+  "brightnessctl"
 )
 
 if command -v dnf >/dev/null
