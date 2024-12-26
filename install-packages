@@ -1,23 +1,28 @@
 #!/usr/bin/env bash
 
+COMMON=(
+  "dialog"
+  "git"
+  "zsh"
+  "fzf"
+  "neovim"
+  "ffmpeg-free"
+  "puddletag"
+  "tmux"
+  "ImageMagick"
+  "grim"
+  "swayimg"
+  "blueman"
+  "rofi"
+  "jq"
+  "yad"
+  "mako"
+)
+
 if command -v dnf >/dev/null
 then
   PACKAGES=(
-    "dialog"
-    "git"
-    "zsh"
-    "fzf"
-    "neovim"
-    "ffmpeg-free"
-    "puddletag"
-    "tmux"
-    "ImageMagick"
-    "grim"
-    "swayimg"
-    "blueman"
-    "rofi"
-    "jq"
-    "yad"
+    "${COMMON[@]}"
   )
   sudo dnf update
   sudo dnf upgrade
@@ -27,21 +32,7 @@ fi
 if command -v pacman >/dev/null
 then
   PACKAGES=(
-    "dialog"
-    "git"
-    "zsh"
-    "fzf"
-    "neovim"
-    "ffmpeg-free"
-    "puddletag"
-    "tmux"
-    "ImageMagick"
-    "grim"
-    "swayimg"
-    "blueman"
-    "rofi"
-    "jq"
-    "yad"
+    "${COMMON[@]}"
   )
   sudo pacman -Syu ${PACKAGES[@]}
 fi

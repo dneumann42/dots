@@ -52,6 +52,10 @@ configure_zsh_history() {
   setopt HIST_IGNORE_SPACE # Do not record an event starting with a space.
   setopt HIST_SAVE_NO_DUPS # Do not write a duplicate event to the history file.
   setopt HIST_VERIFY # Do not execute immediately upon history expansion.
+  export HISTFILE="$HOME/.zhistory"    # History filepath
+  export HISTSIZE=10000                   # Maximum events for internal history
+  export SAVEHIST=10000                   # Maximum events in history file
+  setopt appendhistory
 }
 
 configure_zsh() {

@@ -64,19 +64,21 @@ function mini-player {
   mpv --input-ipc-server="$IPC_SOC" "$url" > "$MPV_LOG" 2>&1 &
   pid=$!
 
+  notify-send "Starting the video..." &
+
   while :; do
     if [[ -S "$IPC_SOC" ]]; then
         printf '{ "command": ["get_property", "playback-time"] }\n' | nc -U "$IPC_SOC" | grep -q '"data"'
         cmd=$?
         if [[ "$cmd" -eq 0 ]]; then
             echo "mpv is playing the video."
-            sleep 0.2
             break
         fi
     fi
     sleep 0.2
   done
 
+  sleep 2.0
   make-floating "$pid"
   sleep 0.1
   corner-float "top-right" "$pid"
