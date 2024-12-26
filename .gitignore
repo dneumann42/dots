@@ -5,3 +5,5 @@ configs/fish/fish_variables
 .cache/
 auto-save-list/
 emacs/*
+
+config/mpd/mpd.db
