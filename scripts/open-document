@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+DOCUMENTS=$HOME/Documents/
+lines=$(find $DOCUMENTS -type f -iname "*.pdf")
+selected=$(echo "$lines" | rofi -sep '\n' -theme DarkBlue -show-icons -dmenu)
+[[ ! -z "$selected" ]] || exit 0;
+zathura "$selected" &

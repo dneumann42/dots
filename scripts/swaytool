@@ -92,6 +92,8 @@ case "$1" in
       corner-float $2 $(get-focused-app-id) ;;
   "mini-player")
       mini-player $2 ;;
+  "make-floating")
+      make-floating $2 ;;
   **)
       swaynag -t warning -m "Not a valid swaytool command '$1'" ;;
 esac

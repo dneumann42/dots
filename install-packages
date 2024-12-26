@@ -46,3 +46,6 @@ fi
 
 # Install ocaml
 
+## handle mimetypes
+
+xdg-mime default org.pwmt.zathura.desktop application/pdf
