@@ -1,0 +1,7 @@
+#/usr/bin/env bash
+
+# for use in vifm
+
+[ -z "$5" ] && echo "Usage: $0 <image> <x> <y> <h> <w>" && exit
+
+img "$2" "$3" "$5" "$4" "$1"

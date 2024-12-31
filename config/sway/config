@@ -12,6 +12,8 @@ gaps outer 8
 
 output * bg $HOME/Pictures/wall.png fill
 
+include "monitors"
+
 default_border pixel 4
 default_floating_border pixel 4
 

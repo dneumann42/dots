@@ -13,7 +13,7 @@ COMMON=(
   "grim"
   "swayimg"
   "blueman"
-  "rofi"
+  "rofi-wayland"
   "jq"
   "yad"
   "mako"

@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+
+sudo dnf install chafa-devel libsixel-devel vips-devel opencv-devel wayland-protocols-devel extra-cmake-modules xcb-util-image-devel
+
+mkdir -p $HOME/.repos
+
+SOURCE="$HOME/.repos/ueberzugpp"
+
+if [[ ! -d "$SOURCE" ]]; then
+  pushd $HOME/.repos > /dev/null
+  git clone https://github.com/jstkdng/ueberzugpp.git ueberzugpp
+  cd ueberzugpp
+  mkdir build && cd build
+  cmake -DCMAKE_BUILD_TYPE=Release -DENABLE_WAYLAND ..
+  cmake --build .
+  echo "INSTALLING"
+  sudo cmake --install build
+  popd > /dev/null
+fi
+
+src="$SOURCE/scripts/img"
+target="$HOME/.local/bin/img"
+ln -sf "$src" "$target"
+
