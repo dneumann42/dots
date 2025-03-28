@@ -18,6 +18,7 @@ default_border pixel 4
 default_floating_border pixel 4
 
 set $opacity 1.0
+
 for_window [class=".*"] opacity $opacity 
 for_window [app_id=".*"] opacity $opacity 
 for_window [app_id="yad"] floating enable
@@ -64,6 +65,11 @@ bindsym $mod+Shift+z exec open-document
 
 for_window [app_id="zathura"] floating enable, resize set 640 900
 for_window [app_id="float-term"] floating enable
+
+# Godot
+for_window [title="Create .*" class="Godot"] floating enable
+for_window [title="Viewport Settings" class="Godot"] floating enable
+for_window [title="Attach Node Script" class="Godot"] floating enable
 
 bindsym XF86AudioMute exec volume mute
 bindsym XF86AudioRaiseVolume exec volume up 5
@@ -171,3 +177,14 @@ bar {
 }
 
 include /etc/sway/config.d/*
+
+## Set dark theme for GTK
+
+exec {
+    gsettings set org.gtk.Settings.FileChooser window-size '(1000, 500)'
+    gsettings set org.gnome.desktop.interface gtk-theme 'Sweet-Dark-v40'
+    gsettings set org.gnome.desktop.interface.wm.preferences theme 'Sweet-Dark-v40'
+    gsettings set org.gnome.desktop.interface icon-theme 'Sweet-Rainbow'
+    gsettings set org.gnome.desktop.interface cursor-size '48'
+    gsettings set org.gnome.desktop.interface font-name 'Roboto Slab 10'
+}

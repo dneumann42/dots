@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+[[ ! -d $HOME/.cache/qman ]] && git clone -b main https://github.com/plp13/qman ~/.cache/qman
+
+pushd $HOME/.cache/qman > /dev/null
+meson setup build src/
+pushd build/ > /dev/null
+meson compile
+sudo meson install
+popd > /dev/null
+popd > /dev/null

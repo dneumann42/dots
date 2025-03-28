@@ -21,6 +21,8 @@ COMMON=(
   "brightnessctl"
   "mpd"
   "ncmpcpp"
+  "meson"
+  "python3-cogapp"
 )
 
 if command -v dnf >/dev/null
