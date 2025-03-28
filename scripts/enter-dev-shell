@@ -1,0 +1,4 @@
+#!/usr/bin/env zsh
+[ -n "$GUIX_ENVIRONMENT" ] && echo "Already within a dev environment" && exit 0;
+
+guix shell -D -f "guix.scm"

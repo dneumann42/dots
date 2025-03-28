@@ -55,6 +55,13 @@ open_note() {
   [ "$exitcode" -eq 0 ] && $EDITOR "$result"
 }
 
+quick_open_note() {
+  pushd $NOTES_PATH > /dev/null
+  note=$(fzf)
+  $EDITOR "$NOTES_PATH/$note"
+  popd > /dev/null
+}
+
 search_note() {
   pushd $NOTES_PATH > /dev/null
   OPTIONS=$(find . -name "*.md" -type f | sort)
@@ -130,6 +137,7 @@ handle_argument() {
     "--daily") open_daily_note $@ ;;
     "--status") git_status $@ ;;
     "--sync") git_sync $@ ;;
+    "--quick-open") quick_open_note $@ ;;
     "cd") cd $NOTES_PATH ;;
     "ed") cd $NOTES_PATH && $EDITOR . ;;
     *) show_command_menu ;;

@@ -16,6 +16,10 @@ install_zplugins() {
   fi
 }
 
+guix_info_msg() {
+  [ -n "$GUIX_ENVIRONMENT" ] && echo " | guix"
+}
+
 source_plugins() {
   source "$ZSH_AUTO_SUGGESTIONS/zsh-autosuggestions.zsh"
   source "$ZSH_SYNTAX_HIGHLIGHTING/zsh-syntax-highlighting.zsh"
@@ -29,7 +33,7 @@ install_ps1() {
   zstyle ':vcs_info:git:*' formats '%b'
 
   export PROMPT="%{%F{39}%}%n%{%F{45}%}@%{%F{51}%}%m %{%F{195}%}%~ %{%f%}$ "
-  export RPROMPT='${vcs_info_msg_0_}'
+  export RPROMPT='${vcs_info_msg_0_}$(guix_info_msg)'
 }
 
 configure_zsh_navigation() {
