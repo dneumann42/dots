@@ -1,10 +1,13 @@
 export EDITOR="nvim"
 export VISUAL="nvim"
-export BROWSER="firefox"
+export BROWSER="zen-browser"
 export GIT_REVIEW_BASE=main # See gitconfig
-export TERM="alacritty"
+export TERM="foot"
 export REPOS="$HOME/Repos"
 # this is platform specific, I should move this to a 
 # generated script that isn't versioned controlled 
 export DOTFILES="/home/dneumann/.dots"
-. "$HOME/.cargo/env"
+
+if [ -f "$HOME/.cargo/env" ]; then
+  source "$HOME/.cargo/env"
+fi

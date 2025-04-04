@@ -1,5 +1,8 @@
 source $HOME/.zalias
-source $HOME/.cargo/env
+
+if [ -d $HOME.cargo ]; then
+  source $HOME/.cargo/env
+fi
 
 PLUGIN_DIR=$HOME/.local/bin/
 mkdir -p "$PLUGIN_DIR"

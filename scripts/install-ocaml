@@ -1,3 +1,19 @@
 #!/usr/bin/env bash
 
-sudo dnf install opam
+# if [ command -v dnf ]; then
+#   sudo dnf install opam
+# elif [ command -v pacman ]; then
+#   sudo pacman -S opam
+# fi
+
+if command -v dnf 2>&1 >/dev/null
+then
+  sudo dnf install opam 
+fi
+
+if command -v pacman 2>&1 >/dev/null
+then
+  sudo pacman -S opam
+fi
+
+opam init
