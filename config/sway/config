@@ -54,6 +54,7 @@ bindsym $mod+m exec swaytool mini-player
 bindsym $mod+Shift+m exec swaytool mini-player prompt
 bindsym $mod+Shift+f exec $term --title "vifm" -e "vifm"
 bindsym $mod+b exec start-browser
+bindsym $mod+o exec open-document
 
 bindsym $mod+q kill
 bindsym $mod+F4 exec wkill

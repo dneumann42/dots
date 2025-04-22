@@ -1,15 +1,4 @@
 #!/usr/bin/env bash
 
 mkdir -p $HOME/.cache
-
-if [ ! -f $HOME/.cache/zig.tar.xz ]; then
-  curl "https://ziglang.org/builds/zig-linux-x86_64-0.14.0-dev.3091+42e48b83b.tar.xz" -o $HOME/.cache/zig.tar.xz
-fi
-
-pushd $HOME/.cache/ > /dev/null
-  mkdir -p zig
-  tar -xf zig.tar.xz --directory zig --strip-components=1
-popd > /dev/null
-
-mkdir -p $HOME/.local/bin/
-mv $HOME/.cache/zig $HOME/.local/bin/zig
+curl https://raw.githubusercontent.com/tristanisham/zvm/master/install.sh | bash

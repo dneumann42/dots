@@ -1,6 +1,6 @@
 * {
     font-family: terminus, sans-serif;
-    font-size: 15px;
+    font-size: 14px;
 }
 
 #waybar {
@@ -13,19 +13,15 @@ button {
     box-shadow: inset 0 -3px transparent;
     border: none;
     border-radius: 0;
-    padding: 0 5px;
+    padding: 0 4px;
 }
 
 #workspaces button {
     color: #ffffff;
-    border-radius: 16px;
-    margin-top: 4px;
-    margin-bottom: 4px;
-    margin-left: 4px;
-}
-
-#workspaces button:hover {
-    background: rgba(0,0,0,0.2);
+    border-radius: 8px;
+    margin-top: 0px;
+    margin-bottom: 2px;
+    margin-left: 0px;
 }
 
 #workspaces button.focused {
@@ -49,14 +45,44 @@ button {
 #mode,
 #window,
 #workspaces {
-    margin: 0 10px;
+    margin: 0 0px;
     opacity: 1.0;
+    padding: 0px 80px 0px 10px;
+    margin: 0px -70px 0px 0px;
+
+    background-color: #000;
+    border-radius: 0px 0px 0px 16px;
+    border: 2px solid #999;
+    border-top: none;
+}
+
+#clock { background-color: #028; color: white; font-weight: bold; }
+
+#battery { border-color: #0fa; color: #0fa; }
+#pulseaudio { border-color: #0af; color: #0af; }
+#memory { border-color: #f86; color: #f86; }
+#cpu { border-color: #fa2; color: #fa2; }
+
+#workspaces {
+  border-radius: 0px 0px 16px 0px;
+  border-left: none;
+  margin: 0;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+#window {
+  border-radius: 0px 0px 16px 16px;
+  border: 3px solid #999;
+  border-top: none;
+  margin: 0;
+  padding-left: 10px;
+  padding-right: 10px;
 }
 
 .modules-left > widget:first-child > #workspaces {
     margin-left: 0;
 }
-
 
 .modules-right > widget:last-child > #workspaces {
     margin-right: 0;
