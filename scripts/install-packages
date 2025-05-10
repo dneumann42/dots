@@ -30,15 +30,15 @@ then
   PACKAGES=(
     "${COMMON[@]}"
   )
-  sudo dnf install https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm
+  dnf install https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm
 
   # https://proton.me/download/mail/linux/ProtonMail-desktop-beta.rpm
   # sudo dnf install ProtonMail-desktop-beta.rpm
 
-  sudo dnf update
-  sudo dnf upgrade
+  dnf update
+  dnf upgrade
 
-  sudo dnf install ${PACKAGES[@]}
+  dnf install ${PACKAGES[@]}
 fi
 
 if command -v pacman >/dev/null
@@ -46,7 +46,7 @@ then
   PACKAGES=(
     "${COMMON[@]}"
   )
-  sudo pacman -Syu ${PACKAGES[@]}
+  pacman -Syu ${PACKAGES[@]}
 fi
 
 # Tmux theme

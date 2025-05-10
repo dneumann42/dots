@@ -31,5 +31,10 @@ create_symlinks() {
   execute "ln -sf $DOTFILES/dialogrc $HOME/.dialogrc"
 }
 
+copy_sway_desktop_session() {
+  cp "$DOTFILES/sway.desktop" "/usr/share/wayland-sessions/"
+}
+
+[[ -d /usr/share/wayland-sessions/ ]] && copy_sway_desktop_session
 [[ "$1" == *i* ]] && "$DOTFILES/scripts/install-packages"
 [[ "$1" == *s* ]] && create_symlinks;
