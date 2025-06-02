@@ -33,6 +33,7 @@ create_symlinks() {
 
 copy_sway_desktop_session() {
   cp "$DOTFILES/sway.desktop" "/usr/share/wayland-sessions/"
+  cp "$DOTFILES/sway-in-shell.sh" "/usr/bin/start-sway.sh"
 }
 
 [[ -d /usr/share/wayland-sessions/ ]] && copy_sway_desktop_session

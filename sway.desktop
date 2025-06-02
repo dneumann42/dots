@@ -1,5 +1,5 @@
 [Desktop Entry]
 Name=Sway
 Comment=An i3-compatible Wayland compositor
-Exec=sway --unsupported-gpu
+Exec=/usr/bin/start-sway.sh --unsupported-gpu
 Type=Application
