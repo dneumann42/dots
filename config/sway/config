@@ -7,6 +7,7 @@ set $right l
 set $term start-terminal
 set $browser start-browser
 set $menu rofi -show drun -theme DarkBlue -show-icons
+set $edit neovide
 
 gaps inner 8
 gaps outer 8
@@ -44,6 +45,11 @@ input "1739:31251:SYNA2393:00_06CB:7A13_Touchpad" {
     middle_emulation enabled
 }
 
+input type:keyboard {
+  repeat_delay 200
+  repeat_rate 30
+}
+
 floating_modifier $mod normal
 
 bindsym $mod+Return exec $term
@@ -55,6 +61,7 @@ bindsym $mod+Shift+m exec swaytool mini-player prompt
 bindsym $mod+Shift+f exec $term --title "vifm" -e "vifm"
 bindsym $mod+b exec start-browser
 bindsym $mod+o exec open-document
+bindsym $mod+Shift+n exec $edit
 
 bindsym $mod+q kill
 bindsym $mod+F4 exec wkill
@@ -161,6 +168,17 @@ mode "resize" {
 }
 
 bindsym $mod+r mode "resize"
+
+mode "resize_layout" {
+    bindsym $left resize set width 500px, mode "defualt"
+    bindsym $down resize set height 500px, mode "defualt"
+    bindsym $up resize set height 500px, mode "defualt"
+    bindsym $right resize set width 500px, mode "defualt"
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+
+bindsym $mod+Shift+r mode "resize_layout"
 
 mode "corner" {
     bindsym $left exec swaytool corner-float top-left, mode "default"
