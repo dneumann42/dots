@@ -180,6 +180,19 @@ mode "resize_layout" {
 
 bindsym $mod+Shift+r mode "resize_layout"
 
+mode "application" {
+    bindsym n exec neovide, mode "default"
+    bindsym b exec $browser, mode "default"
+    bindsym o exec obsidian, mode "default"
+    bindsym d exec discord, mode "default"
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+
+bindsym $mod+d \
+  mode "application", \
+  exec "notify-send -t 10000 'Application Mode' 'n)eovide b)rowser o)bsidian d)iscord'"
+
 mode "corner" {
     bindsym $left exec swaytool corner-float top-left, mode "default"
     bindsym $right exec swaytool corner-float top-right, mode "default"
