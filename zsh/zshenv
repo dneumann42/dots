@@ -2,7 +2,7 @@ export EDITOR="nvim"
 export VISUAL="nvim"
 export BROWSER="zen-browser"
 export GIT_REVIEW_BASE=main # See gitconfig
-export TERM="foot"
+export TERM="kitty"
 export REPOS="$HOME/Repos"
 # this is platform specific, I should move this to a 
 # generated script that isn't versioned controlled 
@@ -16,3 +16,4 @@ fi
 export ZVM_INSTALL="$HOME/.zvm/self"
 export PATH="$PATH:$HOME/.zvm/bin"
 export PATH="$PATH:$ZVM_INSTALL/"
+export PATH="$PATH:$HOME/common-lisp/lem"

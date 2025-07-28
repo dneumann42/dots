@@ -18,6 +18,8 @@ export PATH=$PATH:$HOME/.local/zig
 export PATH=$PATH:$HOME/.repos/zls/zig-out/bin
 export PATH=$PATH:$HOME/.juliaup/bin
 export PATH=$PATH:$HOME/bin
+export PATH=$PATH:$HOME/.nimble/bin
+export PATH=$PATH:$HOME/.local/share/grabnim/current/bin
 
 # opam configuration
 [[ ! -r /home/dneumann/.opam/opam-init/init.zsh ]] || source /home/dneumann/.opam/opam-init/init.zsh  > /dev/null 2> /dev/null

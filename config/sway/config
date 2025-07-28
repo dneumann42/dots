@@ -78,6 +78,7 @@ for_window [app_id="float-term"] floating enable
 for_window [title="Create .*" class="Godot"] floating enable
 for_window [title="Viewport Settings" class="Godot"] floating enable
 for_window [title="Attach Node Script" class="Godot"] floating enable
+for_window [title="Beyond Age.*"] floating enable
 
 bindsym XF86AudioMute exec volume mute
 bindsym XF86AudioRaiseVolume exec volume up 5
@@ -151,6 +152,7 @@ bindsym $mod+space focus mode_toggle
 bindsym $mod+a focus parent
 bindsym $mod+Shift+minus move scratchpad
 bindsym $mod+minus scratchpad show
+bindsym $mod+f2 exec emacs
 
 mode "resize" {
     bindsym $left resize shrink width 30px

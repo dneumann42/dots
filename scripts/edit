@@ -1,0 +1,16 @@
+#!/bin/bash
+
+# Loop to run Neovim until a specific exit code stops the loop
+while true; do
+    nvim "$@"
+    code=$?
+
+    echo "Neovim exited with code $code"
+
+    if [ "$code" -eq 100 ]; then
+        echo "Restarting Neovim..."
+    else
+        echo "Exiting script."
+        break
+    fi
+done
